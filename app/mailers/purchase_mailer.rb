@@ -1,3 +1,16 @@
+class PurchaseMailer < ActionMailer::Base
+layout 'purchase_mailer'
+
+ default from: "One Month Commerce <commerce@belizebeauty.com>"
+
+ def purchase_receipt purchase
+ @purchase = purchase
+
+ mail to: purchase.email, subject: "Thanks for your purchase!"
+
+  end
+
+end
 # class PurchaseMailer < ActionMailer::Base
 # layout 'purchase_mailer' 
 # #CPU WILL LOOK FOR THIS LAYOUT IN LAYOUTS./ SO |IT MUST BE CREATED AND 
@@ -17,17 +30,3 @@
 
 
 # end
-
-class PurchaseMailer < ActionMailer::Base
-layout 'purchase_mailer'
-
- default from: "Offers <commerce@belize.com>"
-
- def purchase_receipt purchase
- @purchase = purchase
-
- mail to: purchase.email, subject: "Thanks for your purchase!"
-
-  end
-
-end
